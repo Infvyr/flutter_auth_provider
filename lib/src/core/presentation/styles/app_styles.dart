@@ -12,9 +12,6 @@ class AppStyles extends ThemeExtension<AppStyles> {
 
   static get instance => const AppStyles();
 
-  // static const Color primaryColor = ;
-  // static const Color secondaryColor = ;
-
   @override
   AppStyles copyWith({Color? brandColor, Color? textColor}) {
     return AppStyles(
@@ -41,7 +38,12 @@ class AppStyles extends ThemeExtension<AppStyles> {
         background: const Color.fromARGB(255, 253, 249, 249),
         primary: brandColor,
         surface: Colors.white,
+        inverseSurface: brandColor,
       ),
+      drawerTheme: const DrawerThemeData(
+        elevation: 0,
+      ),
+      extensions: const [AppStyles()],
       filledButtonTheme: FilledButtonThemeData(
         style: ButtonStyle(
           minimumSize: MaterialStateProperty.all(const Size(88, 50)),
@@ -71,17 +73,18 @@ class AppStyles extends ThemeExtension<AppStyles> {
         textColor: AppStyles.instance.textColor,
         iconColor: AppStyles.instance.textColor,
       ),
-      drawerTheme: const DrawerThemeData(
-        elevation: 0,
-      ),
+      scaffoldBackgroundColor: Colors.white,
       splashFactory: InkRipple.splashFactory,
       progressIndicatorTheme: const ProgressIndicatorThemeData(
         linearTrackColor: Color(0xFFE0E0E0),
         linearMinHeight: 4,
       ),
-      extensions: const [
-        AppStyles(),
-      ],
+      textTheme: TextTheme(
+        headlineSmall: TextStyle(
+          color: brandColor,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
     );
   }
 
@@ -93,7 +96,12 @@ class AppStyles extends ThemeExtension<AppStyles> {
         primary: brandColor,
         surface: const Color(0xFF252525),
         onSurface: Colors.white,
+        inverseSurface: Colors.white,
       ),
+      drawerTheme: const DrawerThemeData(
+        elevation: 0,
+      ),
+      extensions: const [AppStyles()],
       filledButtonTheme: FilledButtonThemeData(
         style: ButtonStyle(
           minimumSize: MaterialStateProperty.all(const Size(88, 50)),
@@ -122,17 +130,17 @@ class AppStyles extends ThemeExtension<AppStyles> {
       listTileTheme: const ListTileThemeData(
         iconColor: Colors.white,
       ),
-      drawerTheme: const DrawerThemeData(
-        elevation: 0,
-      ),
+      scaffoldBackgroundColor: const Color(0xFF252525),
       splashFactory: InkRipple.splashFactory,
       progressIndicatorTheme: const ProgressIndicatorThemeData(
         linearTrackColor: Color(0xFFE0E0E0),
         linearMinHeight: 4,
       ),
-      extensions: const [
-        AppStyles(),
-      ],
+      textTheme: const TextTheme(
+        headlineSmall: TextStyle(
+          fontWeight: FontWeight.w600,
+        ),
+      ),
     );
   }
 }

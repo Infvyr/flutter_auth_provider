@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_authentication/src/pages/home_page/home_page.dart';
 import 'package:flutter_authentication/src/features/authentication/infrastructure/auth_notifier.dart';
 import 'package:flutter_authentication/src/features/authentication/presentation/sign_in_page.dart';
+import 'package:flutter_authentication/src/pages/onboarding/index.dart';
 import 'package:flutter_authentication/src/pages/splash_page/presentation/loading_splash_page.dart';
 import 'package:provider/provider.dart';
 
@@ -26,6 +27,7 @@ class SplashPage extends StatelessWidget {
             return const HomePage();
           } else {
             // User is not authenticated, navigate to sign in page
+            return const OnbordingPage();
             return const SignInPage();
           }
         } else {
