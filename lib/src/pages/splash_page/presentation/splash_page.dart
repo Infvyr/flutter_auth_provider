@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_authentication/src/features/onboarding/presentation/index.dart';
 import 'package:flutter_authentication/src/pages/home_page/home_page.dart';
 import 'package:flutter_authentication/src/features/authentication/infrastructure/auth_notifier.dart';
-import 'package:flutter_authentication/src/features/authentication/presentation/sign_in_page.dart';
-import 'package:flutter_authentication/src/pages/onboarding/index.dart';
 import 'package:flutter_authentication/src/pages/splash_page/presentation/loading_splash_page.dart';
 import 'package:provider/provider.dart';
 
@@ -26,9 +25,8 @@ class SplashPage extends StatelessWidget {
             // User is authenticated, navigate to home page
             return const HomePage();
           } else {
-            // User is not authenticated, navigate to sign in page
+            // User is not authenticated, navigate to onboarding page
             return const OnbordingPage();
-            return const SignInPage();
           }
         } else {
           // Show a loading splash page during the token check

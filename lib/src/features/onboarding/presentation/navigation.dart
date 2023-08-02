@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-const int transitionDuration = 400;
+import 'package:flutter_authentication/src/constants/animations.dart';
 
 class OnboardingNavigation extends StatelessWidget {
   const OnboardingNavigation({
@@ -29,7 +28,7 @@ class OnboardingNavigation extends StatelessWidget {
                 onPressed: () {
                   pageController.animateToPage(
                     currentPage - 1,
-                    duration: const Duration(milliseconds: transitionDuration),
+                    duration: const Duration(milliseconds: kPageViewDuration),
                     curve: Curves.easeInOut,
                   );
                 },
@@ -55,7 +54,7 @@ class OnboardingNavigation extends StatelessWidget {
                 } else {
                   pageController.animateToPage(
                     currentPage + 1,
-                    duration: const Duration(milliseconds: transitionDuration),
+                    duration: const Duration(milliseconds: kPageViewDuration),
                     curve: Curves.easeInOut,
                   );
                 }
