@@ -1,7 +1,9 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_authentication/gen/assets.gen.dart';
 import 'package:flutter_authentication/src/constants/animations.dart';
 import 'package:flutter_authentication/src/features/onboarding/infrastructure/onboarding_notifier.dart';
+import 'package:flutter_authentication/src/features/onboarding/presentation/navigation_dots.dart';
 import 'package:provider/provider.dart';
 
 class OnboardingGetCertifiedPage extends StatefulWidget {
@@ -62,8 +64,8 @@ class _OnboardingGetCertifiedPageState extends State<OnboardingGetCertifiedPage>
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
       child: Column(
         children: [
           const SizedBox(height: 32),
@@ -79,15 +81,20 @@ class _OnboardingGetCertifiedPageState extends State<OnboardingGetCertifiedPage>
               ),
             ),
           ),
-          const SizedBox(height: 60),
+          const SizedBox(height: 30),
+          const NavigationDots(currentPage: 2),
           AnimatedContainer(
             duration: const Duration(milliseconds: kPageViewDuration + 150),
             margin: EdgeInsets.only(top: headingMarginTop),
             child: AnimatedOpacity(
               duration: const Duration(milliseconds: kPageViewDuration + 150),
               opacity: headingMarginTop == 0 ? 1 : 0,
-              child: Text(
+              child: AutoSizeText(
                 'Get Certified',
+                textAlign: TextAlign.center,
+                minFontSize: 20,
+                maxFontSize: 32,
+                maxLines: 1,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
@@ -99,9 +106,12 @@ class _OnboardingGetCertifiedPageState extends State<OnboardingGetCertifiedPage>
             child: AnimatedOpacity(
               duration: const Duration(milliseconds: kPageViewDuration + 250),
               opacity: textMarginTop == 0 ? 1 : 0,
-              child: Text(
-                'Start learning and get certified after your training to get a lucrative job',
+              child: AutoSizeText(
+                'Start learning and get certified after your training to get a lucrative job.',
                 textAlign: TextAlign.center,
+                minFontSize: 16,
+                maxFontSize: 18,
+                maxLines: 4,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),

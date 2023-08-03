@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_authentication/src/features/onboarding/infrastructure/onboarding_notifier.dart';
-import 'package:flutter_authentication/src/features/onboarding/presentation/navigation_dots.dart';
 import 'package:provider/provider.dart';
 
 import 'navigation.dart';
@@ -25,7 +24,7 @@ class _OnbordingPageState extends State<OnbordingPage> {
       appBar: AppBar(
         elevation: 0,
         actions: [
-           NavigationSkipButton(pageController: pageController),
+          NavigationSkipButton(pageController: pageController),
         ],
       ),
       body: Padding(
@@ -43,7 +42,6 @@ class _OnbordingPageState extends State<OnbordingPage> {
                   setState(() => currentPage = index);
                 },
               ),
-              NavigationDots(currentPage: currentPage),
               OnboardingNavigation(
                 currentPage: currentPage,
                 pageController: pageController,

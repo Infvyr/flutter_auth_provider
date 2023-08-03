@@ -59,43 +59,32 @@ class _NavigationDotsState extends State<NavigationDots> with SingleTickerProvid
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.sizeOf(context).height;
-    final dotsAlignment = (_onboardingNotifier.dotsAnimationCompleted && screenHeight > 800
-            ? screenHeight / 2
-            : screenHeight / 2 - kToolbarHeight) -
-        kPosition;
-
-    return AnimatedPositioned(
+    return AnimatedOpacity(
       duration: const Duration(milliseconds: kPageViewDuration + 50),
+      opacity: _onboardingNotifier.dotsAnimationCompleted ? 1 : 0,
       curve: Curves.easeIn,
-      bottom: dotsAlignment,
-      left: 0,
-      right: 0,
-      child: AnimatedOpacity(
-        duration: const Duration(milliseconds: kPageViewDuration + 50),
-        opacity: _onboardingNotifier.dotsAnimationCompleted ? 1 : 0,
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 32),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(
-              kPageViewPages.length,
-              (index) => AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                margin: const EdgeInsets.symmetric(horizontal: 4),
-                width: widget.currentPage == index ? 16 : 8,
-                height: 8,
-                decoration: BoxDecoration(
-                  color: widget.currentPage == index
-                      ? Theme.of(context).colorScheme.primary
-                      : Theme.of(context).colorScheme.primary.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(4),
-                ),
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 32),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(
+            kPageViewPages.length,
+            (index) => AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              margin: const EdgeInsets.symmetric(horizontal: 4),
+              width: widget.currentPage == index ? 16 : 8,
+              height: 8,
+              decoration: BoxDecoration(
+                color: widget.currentPage == index
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(4),
               ),
             ),
           ),
         ),
       ),
     );
+    // );
   }
 }

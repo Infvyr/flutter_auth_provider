@@ -1,8 +1,11 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:flutter_authentication/gen/assets.gen.dart';
 import 'package:flutter_authentication/src/constants/animations.dart';
 import 'package:flutter_authentication/src/features/onboarding/infrastructure/onboarding_notifier.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_authentication/src/features/onboarding/presentation/navigation_dots.dart';
 
 class OnboardingWelcomePage extends StatefulWidget {
   const OnboardingWelcomePage({super.key});
@@ -62,8 +65,8 @@ class _OnboardingWelcomePageState extends State<OnboardingWelcomePage> with Sing
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
       child: Column(
         children: [
           const SizedBox(height: 32),
@@ -79,16 +82,20 @@ class _OnboardingWelcomePageState extends State<OnboardingWelcomePage> with Sing
               ),
             ),
           ),
-          const SizedBox(height: 60),
+          const SizedBox(height: 30),
+          const NavigationDots(currentPage: 0),
           AnimatedContainer(
             duration: const Duration(milliseconds: kPageViewDuration + 150),
             margin: EdgeInsets.only(top: headingMarginTop),
             child: AnimatedOpacity(
               duration: const Duration(milliseconds: kPageViewDuration + 150),
               opacity: headingMarginTop == 0 ? 1 : 0,
-              child: Text(
+              child: AutoSizeText(
                 'Welcome to Flutter Auth',
                 textAlign: TextAlign.center,
+                minFontSize: 20,
+                maxFontSize: 32,
+                maxLines: 1,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
@@ -100,9 +107,12 @@ class _OnboardingWelcomePageState extends State<OnboardingWelcomePage> with Sing
             child: AnimatedOpacity(
               duration: const Duration(milliseconds: kPageViewDuration + 250),
               opacity: textMarginTop == 0 ? 1 : 0,
-              child: Text(
+              child: AutoSizeText(
                 'Welcome as you learn a world changing skill to get a better job.',
                 textAlign: TextAlign.center,
+                minFontSize: 16,
+                maxFontSize: 18,
+                maxLines: 4,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
