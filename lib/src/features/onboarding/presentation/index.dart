@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_authentication/src/features/onboarding/infrastructure/onboarding_notifier.dart';
+import 'package:flutter_authentication/src/features/onboarding/presentation/navigation_dots.dart';
+import 'package:provider/provider.dart';
 
 import 'navigation.dart';
 import 'navigation_skip_button.dart';
@@ -22,27 +25,32 @@ class _OnbordingPageState extends State<OnbordingPage> {
       appBar: AppBar(
         elevation: 0,
         actions: [
-          NavigationSkipButton(pageController: pageController),
+           NavigationSkipButton(pageController: pageController),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-        child: Stack(
-          children: [
-            PageView.builder(
-              controller: pageController,
-              itemCount: kPageViewPages.length,
-              itemBuilder: (context, index) => kPageViewPages[index],
-              onPageChanged: (index) {
-                setState(() => currentPage = index);
-              },
-            ),
-            OnboardingNavigation(
-              currentPage: currentPage,
-              pageController: pageController,
-              pages: kPageViewPages,
-            ),
-          ],
+        child: ChangeNotifierProvider(
+          create: (_) => OnboardingNotifier(),
+          lazy: true,
+          child: Stack(
+            children: [
+              PageView.builder(
+                controller: pageController,
+                itemCount: kPageViewPages.length,
+                itemBuilder: (_, index) => kPageViewPages[index],
+                onPageChanged: (index) {
+                  setState(() => currentPage = index);
+                },
+              ),
+              NavigationDots(currentPage: currentPage),
+              OnboardingNavigation(
+                currentPage: currentPage,
+                pageController: pageController,
+                pages: kPageViewPages,
+              ),
+            ],
+          ),
         ),
       ),
     );

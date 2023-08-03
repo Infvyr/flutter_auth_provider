@@ -1,4 +1,4 @@
-import 'package:flutter_authentication/src/common/onboarding/models/page_view_model.dart';
+import 'package:flutter_authentication/src/common/models/onboarding/page_view_model.dart';
 
 const kPageViewDuration = 400;
 PageViewModel kPageViewWelcome = const PageViewModel(
