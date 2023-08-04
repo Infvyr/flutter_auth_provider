@@ -66,10 +66,9 @@ class _OnboardingWelcomePageState extends State<OnboardingWelcomePage> with Sing
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+      padding: const EdgeInsets.fromLTRB(32, 0, 32, 80),
       child: Column(
         children: [
-          const SizedBox(height: 32),
           AnimatedContainer(
             duration: const Duration(milliseconds: kPageViewDuration),
             margin: EdgeInsets.only(top: headingMarginTop),

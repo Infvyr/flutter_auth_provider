@@ -69,14 +69,13 @@ class _OnboardingNavigationState extends State<OnboardingNavigation> with Single
       child: AnimatedOpacity(
         duration: const Duration(milliseconds: kPageViewDuration * 2),
         opacity: _onboardingNotifier.navigationAnimationCompleted ? 1 : 0,
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 32),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // back button
-              if (widget.currentPage != 0)
-                TextButton(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // back button
+            if (widget.currentPage != 0)
+              Expanded(
+                child: TextButton(
                   onPressed: () {
                     widget.pageController.animateToPage(
                       widget.currentPage - 1,
@@ -84,9 +83,6 @@ class _OnboardingNavigationState extends State<OnboardingNavigation> with Single
                       curve: Curves.easeInOut,
                     );
                   },
-                  style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(const Size(150, 50)),
-                  ),
                   child: Text(
                     'Back',
                     style: TextStyle(
@@ -95,11 +91,13 @@ class _OnboardingNavigationState extends State<OnboardingNavigation> with Single
                       fontSize: 16,
                     ),
                   ),
-                )
-              else
-                const SizedBox(),
-              // next button
-              FilledButton(
+                ),
+              )
+            else
+              const Expanded(child: SizedBox()),
+            // next button
+            Expanded(
+              child: FilledButton(
                 onPressed: () {
                   if (widget.currentPage == widget.pages.length - 1) {
                     // navigate to sign in page
@@ -111,9 +109,6 @@ class _OnboardingNavigationState extends State<OnboardingNavigation> with Single
                     );
                   }
                 },
-                style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(const Size(150, 50)),
-                ),
                 child: Text(
                   widget.currentPage == widget.pages.length - 1 ? 'Get Started' : 'Next',
                   style: const TextStyle(
@@ -121,8 +116,8 @@ class _OnboardingNavigationState extends State<OnboardingNavigation> with Single
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

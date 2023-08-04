@@ -62,7 +62,6 @@ class _NavigationDotsState extends State<NavigationDots> with SingleTickerProvid
     return AnimatedOpacity(
       duration: const Duration(milliseconds: kPageViewDuration + 50),
       opacity: _onboardingNotifier.dotsAnimationCompleted ? 1 : 0,
-      curve: Curves.easeIn,
       child: Padding(
         padding: const EdgeInsets.only(bottom: 32),
         child: Row(

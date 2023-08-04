@@ -4,7 +4,7 @@ import 'package:flutter_authentication/src/core/infrastructure/user/user_notifie
 import 'package:flutter_authentication/src/core/presentation/styles/app_styles.dart';
 import 'package:flutter_authentication/src/features/authentication/infrastructure/auth_notifier.dart';
 import 'package:flutter_authentication/src/pages/splash_page/presentation/splash_page.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart' show ChangeNotifierProvider, MultiProvider;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +29,7 @@ void main() async {
         },
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
+          themeAnimationCurve: Curves.easeInOut,
           theme: AppStyles.instance.light,
           darkTheme: AppStyles.instance.dark,
           themeMode: ThemeMode.system,
