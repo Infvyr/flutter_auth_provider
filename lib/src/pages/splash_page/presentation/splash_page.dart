@@ -6,6 +6,8 @@ import 'package:flutter_authentication/src/pages/splash_page/presentation/loadin
 import 'package:provider/provider.dart';
 
 class SplashPage extends StatelessWidget {
+  static var routeName = '/';
+
   const SplashPage({super.key});
 
   @override

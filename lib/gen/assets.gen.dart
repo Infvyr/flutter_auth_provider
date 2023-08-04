@@ -34,14 +34,13 @@ class Assets {
   static const AssetGenImage educatorMin =
       AssetGenImage('assets/educator-min.png');
   static const $AssetsIconsGen icons = $AssetsIconsGen();
-  static const AssetGenImage logoDarkMin =
-      AssetGenImage('assets/logo-dark-min.png');
+  static const String logoDarkMin = 'assets/logo-dark-min.svg';
   static const AssetGenImage logoMin = AssetGenImage('assets/logo-min.png');
   static const AssetGenImage onlineLearningMin =
       AssetGenImage('assets/online_learning-min.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
+  List<dynamic> get values => [
         bannerMin,
         certificationMin,
         educatorMin,

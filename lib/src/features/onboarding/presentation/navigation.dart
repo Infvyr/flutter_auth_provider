@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_authentication/src/constants/animations.dart';
+import 'package:flutter_authentication/src/features/authentication/presentation/sign_in_page.dart';
 import 'package:flutter_authentication/src/features/onboarding/infrastructure/onboarding_notifier.dart';
 import 'package:provider/provider.dart';
 
@@ -100,7 +101,11 @@ class _OnboardingNavigationState extends State<OnboardingNavigation> with Single
               child: FilledButton(
                 onPressed: () {
                   if (widget.currentPage == widget.pages.length - 1) {
-                    // navigate to sign in page
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const SignInPage(),
+                      ),
+                    );
                   } else {
                     widget.pageController.animateToPage(
                       widget.currentPage + 1,
