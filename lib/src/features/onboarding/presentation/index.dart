@@ -14,17 +14,25 @@ class OnbordingPage extends StatefulWidget {
 }
 
 class _OnbordingPageState extends State<OnbordingPage> {
-  final PageController pageController = PageController();
+  PageController pageController = PageController();
 
   int currentPage = 0;
 
   @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    bool isVisibleSkipWidget = currentPage != kPageViewPages.length - 1;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         actions: [
-          NavigationSkipButton(pageController: pageController),
+          isVisibleSkipWidget ? NavigationSkipButton(pageController: pageController) : const SizedBox(),
         ],
       ),
       body: Padding(

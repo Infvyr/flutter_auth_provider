@@ -13,7 +13,7 @@ class SplashPage extends StatelessWidget {
     final authNotifier = Provider.of<AuthNotifier>(context, listen: false);
 
     Future<void> initializeApp(AuthNotifier authNotifier) async {
-      await Future.delayed(const Duration(seconds: 3));
+      await Future.delayed(const Duration(seconds: 2));
       await authNotifier.checkToken();
     }
 
