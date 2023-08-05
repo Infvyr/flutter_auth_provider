@@ -1,17 +1,11 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart' show ChangeNotifier;
+import 'package:flutter/foundation.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_authentication/src/core/index.dart';
 
 class UserNotifier extends ChangeNotifier {
-  User _user = const User(
-    id: 0,
-    firstName: 'Mark',
-    lastName: 'Njunge',
-    avatar: 'https://reqres.in/img/faces/1-image.jpg',
-    email: 'email@domain.com',
-  );
+  late User _user;
 
   User get user => _user;
 
@@ -22,6 +16,7 @@ class UserNotifier extends ChangeNotifier {
 
       if (response.statusCode == HttpStatus.ok) {
         _user = User.fromJson(responseData);
+        await SharedPrefs.saveMapData('user', responseData);
         notifyListeners();
       } else {
         throw 'Failed to fetch user data!';
@@ -38,5 +33,15 @@ class UserNotifier extends ChangeNotifier {
       rethrow;
     }
     return _user;
+  }
+
+  Future<User> readUserData() async {
+    try {
+      final userData = SharedPrefs.getMapData('user');
+      _user = User.fromJson(userData);
+      return _user;
+    } catch (error) {
+      rethrow;
+    }
   }
 }

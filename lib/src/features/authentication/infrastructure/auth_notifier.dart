@@ -9,7 +9,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthNotifier extends ChangeNotifier {
   final storage = const FlutterSecureStorage();
-  final _sharedPrefInstance = SharedPrefs.instance;
 
   bool _isAuthenticated = false;
   String _token = '';
@@ -65,7 +64,7 @@ class AuthNotifier extends ChangeNotifier {
 
   Future<void> signOut() async {
     _deleteToken();
-    _sharedPrefInstance.clear();
+    SharedPrefs.clearData();
     notifyListeners();
   }
 
@@ -79,16 +78,21 @@ class AuthNotifier extends ChangeNotifier {
   }
 
   Future<void> checkToken() async {
-    await storage.read(key: 'token').then((token) {
-      if (token != null && token.isNotEmpty) {
-        _isAuthenticated = true;
-        _token = token;
-        notifyListeners();
-      } else {
-        _isAuthenticated = false;
-        _token = '';
-        notifyListeners();
-      }
-    });
+    try {
+      await storage.read(key: 'token').then((token) {
+        if (token != null && token.isNotEmpty) {
+          _isAuthenticated = true;
+          _token = token;
+          notifyListeners();
+        } else {
+          _isAuthenticated = false;
+          _token = '';
+          notifyListeners();
+        }
+      });
+    } catch (error) {
+      debugPrint('CheckToken error: $error');
+      rethrow;
+    }
   }
 }

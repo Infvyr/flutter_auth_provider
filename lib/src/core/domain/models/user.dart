@@ -1,36 +1,32 @@
-import 'package:equatable/equatable.dart';
-
-class User extends Equatable {
-  final int id;
-  final String email;
-  final String firstName;
-  final String lastName;
-  final String avatar;
-
-  const User({
+class User {
+  User({
     required this.id,
     required this.email,
     required this.firstName,
     required this.lastName,
     required this.avatar,
   });
+  late final int id;
+  late final String email;
+  late final String firstName;
+  late final String lastName;
+  late final String avatar;
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
-        id: json['id'] as int,
-        email: json['email'] as String,
-        firstName: json['first_name'] as String,
-        lastName: json['last_name'] as String,
-        avatar: json['avatar'] as String,
-      );
+  User.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    email = json['email'];
+    firstName = json['first_name'];
+    lastName = json['last_name'];
+    avatar = json['avatar'];
+  }
 
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'email': email,
-        'first_name': firstName,
-        'last_name': lastName,
-        'avatar': avatar,
-      };
-
-  @override
-  List<Object?> get props => [id, email, firstName, lastName, avatar];
+  Map<String, dynamic> toJson() {
+    final data = <String, dynamic>{};
+    data['id'] = id;
+    data['email'] = email;
+    data['first_name'] = firstName;
+    data['last_name'] = lastName;
+    data['avatar'] = avatar;
+    return data;
+  }
 }

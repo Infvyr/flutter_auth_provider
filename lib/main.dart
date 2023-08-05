@@ -6,7 +6,7 @@ import 'package:provider/provider.dart' show ChangeNotifierProvider, MultiProvid
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SharedPrefs().init();
+  await SharedPrefs.init();
 
   runApp(
     MultiProvider(
