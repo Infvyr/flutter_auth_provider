@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_authentication/src/constants/animations.dart';
-import 'package:flutter_authentication/src/features/authentication/presentation/sign_in_page.dart';
-import 'package:flutter_authentication/src/features/onboarding/infrastructure/onboarding_notifier.dart';
+import 'package:flutter_authentication/src/features/index.dart';
 import 'package:provider/provider.dart';
 
 class OnboardingNavigation extends StatefulWidget {

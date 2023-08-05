@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_authentication/src/constants/animations.dart';
-import 'package:flutter_authentication/src/features/onboarding/infrastructure/onboarding_notifier.dart';
-import 'package:flutter_authentication/src/features/onboarding/presentation/page_view_config.dart';
+import 'package:flutter_authentication/src/features/index.dart';
 
 class NavigationDots extends StatefulWidget {
   const NavigationDots({

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_authentication/src/core/infrastructure/shared_preferences/shared_prefs_service.dart';
-import 'package:flutter_authentication/src/core/infrastructure/user/user_notifier.dart';
-import 'package:flutter_authentication/src/core/presentation/routes/app_routes.dart';
-import 'package:flutter_authentication/src/core/presentation/styles/app_styles.dart';
-import 'package:flutter_authentication/src/features/authentication/infrastructure/auth_notifier.dart';
-import 'package:flutter_authentication/src/pages/splash_page/presentation/splash_page.dart';
+import 'package:flutter_authentication/src/core/index.dart';
+import 'package:flutter_authentication/src/features/index.dart';
+import 'package:flutter_authentication/src/pages/index.dart';
 import 'package:provider/provider.dart' show ChangeNotifierProvider, MultiProvider;
 
 void main() async {

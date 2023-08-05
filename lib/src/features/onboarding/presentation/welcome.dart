@@ -4,8 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:flutter_authentication/gen/assets.gen.dart';
 import 'package:flutter_authentication/src/constants/animations.dart';
-import 'package:flutter_authentication/src/features/onboarding/infrastructure/onboarding_notifier.dart';
-import 'package:flutter_authentication/src/features/onboarding/presentation/navigation_dots.dart';
+import 'package:flutter_authentication/src/features/index.dart';
 
 class OnboardingWelcomePage extends StatefulWidget {
   const OnboardingWelcomePage({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_authentication/src/constants/animations.dart';
 
-import 'page_view_config.dart';
+import 'package:flutter_authentication/src/features/onboarding/presentation/page_view_config.dart';
 
 class NavigationSkipButton extends StatelessWidget {
   const NavigationSkipButton({

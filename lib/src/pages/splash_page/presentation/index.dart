@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_authentication/src/features/onboarding/presentation/index.dart';
-import 'package:flutter_authentication/src/pages/home_page/home_page.dart';
+import 'package:flutter_authentication/src/pages/home_page/index.dart';
 import 'package:flutter_authentication/src/features/authentication/infrastructure/auth_notifier.dart';
 import 'package:flutter_authentication/src/pages/splash_page/presentation/loading_splash_page.dart';
 import 'package:provider/provider.dart';

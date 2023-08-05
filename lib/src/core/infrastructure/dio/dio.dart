@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_authentication/src/core/infrastructure/dio/interceptors.dart';
+import 'package:flutter_authentication/src/core/index.dart';
 
 class DioClient {
   final Dio _dio = Dio();

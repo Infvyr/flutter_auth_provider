@@ -1,9 +1,8 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show ChangeNotifier;
 import 'package:dio/dio.dart';
-import 'package:flutter_authentication/src/core/domain/models/user.dart';
-import 'package:flutter_authentication/src/core/infrastructure/dio/dio.dart';
+import 'package:flutter_authentication/src/core/index.dart';
 
 class UserNotifier extends ChangeNotifier {
   User _user = const User(

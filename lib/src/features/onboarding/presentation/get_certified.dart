@@ -2,8 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_authentication/gen/assets.gen.dart';
 import 'package:flutter_authentication/src/constants/animations.dart';
-import 'package:flutter_authentication/src/features/onboarding/infrastructure/onboarding_notifier.dart';
-import 'package:flutter_authentication/src/features/onboarding/presentation/navigation_dots.dart';
+import 'package:flutter_authentication/src/features/index.dart';
 import 'package:provider/provider.dart';
 
 class OnboardingGetCertifiedPage extends StatefulWidget {

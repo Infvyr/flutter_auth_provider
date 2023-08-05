@@ -1,11 +1,10 @@
-import 'dart:convert';
+import 'dart:convert' show jsonEncode;
 import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_authentication/src/core/infrastructure/dio/dio.dart';
-import 'package:flutter_authentication/src/core/infrastructure/shared_preferences/shared_prefs_service.dart';
-import 'package:flutter_authentication/src/features/authentication/domain/models/auth.dart';
+import 'package:flutter_authentication/src/core/index.dart';
+import 'package:flutter_authentication/src/features/index.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthNotifier extends ChangeNotifier {
