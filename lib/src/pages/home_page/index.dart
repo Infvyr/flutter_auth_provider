@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_authentication/src/core/infrastructure/user/user_notifier.dart';
 import 'package:flutter_authentication/src/core/presentation/styles/app_styles.dart';
@@ -70,8 +71,11 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(userNotifier.user.avatar),
-                  onBackgroundImageError: (_, __) {},
+                  // backgroundImage: NetworkImage(userNotifier.user.avatar),
+                  backgroundImage: CachedNetworkImageProvider(
+                    userNotifier.user.avatar,
+                    cacheKey: userNotifier.user.avatar,
+                  ),
                 ),
                 decoration: MediaQuery.of(context).platformBrightness == Brightness.light
                     ? BoxDecoration(

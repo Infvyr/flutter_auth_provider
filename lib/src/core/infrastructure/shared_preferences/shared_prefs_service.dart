@@ -53,7 +53,6 @@ class SharedPrefs {
 
   static Future<bool> saveMapData(String key, Map<String, dynamic> value) async {
     final jsonString = jsonEncode(value);
-    debugPrint('jsonString: $jsonString');
     return await preferences.setString(key, jsonString);
   }
 

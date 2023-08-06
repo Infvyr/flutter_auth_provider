@@ -10,7 +10,6 @@ dependencies:
   auto_size_text: ^3.0.0
   cached_network_image: ^3.2.3
   dio: ^5.3.0
-  equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_secure_storage: ^8.0.0

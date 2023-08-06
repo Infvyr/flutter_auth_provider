@@ -1,8 +1,6 @@
 import 'dart:convert' show json;
 
-import 'package:equatable/equatable.dart';
-
-class Auth extends Equatable {
+class Auth {
   final String? token;
 
   const Auth({this.token});
@@ -26,7 +24,4 @@ class Auth extends Equatable {
   ///
   /// Converts [Auth] to a JSON string.
   String toJson() => json.encode(toMap());
-
-  @override
-  List<Object?> get props => [token];
 }

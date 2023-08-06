@@ -16,6 +16,14 @@ class AuthNotifier extends ChangeNotifier {
   bool get isAuthenticated => _isAuthenticated;
   String get token => _token;
 
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+
+  setLoading(bool value) {
+    _isLoading = value;
+    notifyListeners();
+  }
+
   void init({String? token}) {
     if (token != null && token.isNotEmpty) {
       _isAuthenticated = true;
@@ -28,6 +36,7 @@ class AuthNotifier extends ChangeNotifier {
     Function? onSuccess,
     Function? onError,
   }) async {
+    setLoading(true);
     try {
       final response = await dio.post(
         '/login',
@@ -59,6 +68,8 @@ class AuthNotifier extends ChangeNotifier {
     } catch (error) {
       onError?.call(error.toString());
       rethrow;
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -91,7 +102,6 @@ class AuthNotifier extends ChangeNotifier {
         }
       });
     } catch (error) {
-      debugPrint('CheckToken error: $error');
       rethrow;
     }
   }

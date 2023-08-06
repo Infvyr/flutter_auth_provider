@@ -102,9 +102,23 @@ class _SignInFormState extends State<SignInForm> {
             const SizedBox(height: 20),
             SizedBox(
               width: screenSize.width,
-              child: FilledButton(
-                onPressed: _onSubmit,
-                child: const Text('Sign In'),
+              child: Consumer<AuthNotifier>(
+                builder: (context, authProvider, child) {
+                  final isLoading = authProvider.isLoading;
+
+                  return FilledButton(
+                    onPressed: _onSubmit,
+                    child: isLoading
+                        ? const CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : const Text('Sign In'),
+                  );
+                },
+                // child: FilledButton(
+                //   onPressed: _onSubmit,
+                //   child: const Text('Sign In'),
+                // ),
               ),
             ),
           ],
