@@ -79,8 +79,7 @@ class _OnboardingChoosePageState extends State<OnboardingChoosePage> with Single
               ),
             ),
           ),
-          const SizedBox(height: 30),
-          const NavigationDots(currentPage: 1),
+          const SizedBox(height: 60),
           AnimatedContainer(
             duration: const Duration(milliseconds: kPageViewDuration + 150),
             margin: EdgeInsets.only(top: headingMarginTop),

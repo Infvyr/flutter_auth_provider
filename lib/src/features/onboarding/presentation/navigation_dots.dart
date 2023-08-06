@@ -58,25 +58,31 @@ class _NavigationDotsState extends State<NavigationDots> with SingleTickerProvid
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedOpacity(
-      duration: const Duration(milliseconds: kPageViewDuration + 50),
-      opacity: _onboardingNotifier.dotsAnimationCompleted ? 1 : 0,
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 32),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(
-            kPageViewPages.length,
-            (index) => AnimatedContainer(
-              duration: const Duration(milliseconds: 300),
-              margin: const EdgeInsets.symmetric(horizontal: 4),
-              width: widget.currentPage == index ? 16 : 8,
-              height: 8,
-              decoration: BoxDecoration(
-                color: widget.currentPage == index
-                    ? Theme.of(context).colorScheme.primary
-                    : Theme.of(context).colorScheme.primary.withOpacity(0.5),
-                borderRadius: BorderRadius.circular(4),
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return AnimatedPositioned(
+      duration: const Duration(milliseconds: kPageViewDuration),
+      top: screenHeight < 680 ? screenHeight * 0.31 : screenHeight * 0.25,
+      child: AnimatedOpacity(
+        duration: const Duration(milliseconds: kPageViewDuration + 50),
+        opacity: _onboardingNotifier.dotsAnimationCompleted ? 1 : 0,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 32),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+              kPageViewPages.length,
+              (index) => AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                margin: const EdgeInsets.symmetric(horizontal: 4),
+                width: widget.currentPage == index ? 16 : 8,
+                height: 8,
+                decoration: BoxDecoration(
+                  color: widget.currentPage == index
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(4),
+                ),
               ),
             ),
           ),

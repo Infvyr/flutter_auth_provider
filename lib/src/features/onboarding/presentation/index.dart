@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_authentication/src/features/onboarding/infrastructure/onboarding_notifier.dart';
+import 'package:flutter_authentication/src/features/index.dart';
 import 'package:provider/provider.dart';
-
-import 'navigation.dart';
-import 'navigation_skip_button.dart';
-import 'page_view_config.dart';
 
 class OnbordingPage extends StatefulWidget {
   const OnbordingPage({super.key});
@@ -41,6 +37,7 @@ class _OnbordingPageState extends State<OnbordingPage> {
           create: (_) => OnboardingNotifier(),
           lazy: true,
           child: Stack(
+            alignment: Alignment.center,
             children: [
               PageView.builder(
                 controller: pageController,
@@ -50,6 +47,7 @@ class _OnbordingPageState extends State<OnbordingPage> {
                   setState(() => currentPage = index);
                 },
               ),
+              NavigationDots(currentPage: currentPage),
               OnboardingNavigation(
                 currentPage: currentPage,
                 pageController: pageController,

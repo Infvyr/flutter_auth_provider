@@ -80,8 +80,7 @@ class _OnboardingWelcomePageState extends State<OnboardingWelcomePage> with Sing
               ),
             ),
           ),
-          const SizedBox(height: 30),
-          const NavigationDots(currentPage: 0),
+          const SizedBox(height: 60),
           AnimatedContainer(
             duration: const Duration(milliseconds: kPageViewDuration + 150),
             margin: EdgeInsets.only(top: headingMarginTop),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:flutter_authentication/src/constants/animations.dart';
 import 'package:flutter_authentication/src/features/index.dart';
-import 'package:provider/provider.dart';
 
 class OnboardingNavigation extends StatefulWidget {
   const OnboardingNavigation({
@@ -44,7 +45,7 @@ class _OnboardingNavigationState extends State<OnboardingNavigation> with Single
 
   void initAnimation() {
     if (_onboardingNotifier.navigationAnimationCompleted) {
-      kPosition = 0.0;
+      kPosition = 20.0;
     } else {
       _animationController.addStatusListener(_onAnimationCompleted);
     }
@@ -53,7 +54,7 @@ class _OnboardingNavigationState extends State<OnboardingNavigation> with Single
   void _onAnimationCompleted(AnimationStatus status) {
     if (status == AnimationStatus.completed) {
       setState(() {
-        kPosition = 0.0;
+        kPosition = 20.0;
       });
       _onboardingNotifier.completeNavigationAnimation = true;
     }
@@ -83,6 +84,9 @@ class _OnboardingNavigationState extends State<OnboardingNavigation> with Single
                       curve: Curves.easeInOut,
                     );
                   },
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(const Size(88, 50)),
+                  ),
                   child: Text(
                     'Back',
                     style: TextStyle(

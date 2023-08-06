@@ -1,9 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:flutter_authentication/gen/assets.gen.dart';
 import 'package:flutter_authentication/src/constants/animations.dart';
 import 'package:flutter_authentication/src/features/index.dart';
-import 'package:provider/provider.dart';
 
 class OnboardingGetCertifiedPage extends StatefulWidget {
   const OnboardingGetCertifiedPage({super.key});
@@ -79,8 +80,7 @@ class _OnboardingGetCertifiedPageState extends State<OnboardingGetCertifiedPage>
               ),
             ),
           ),
-          const SizedBox(height: 30),
-          const NavigationDots(currentPage: 2),
+          const SizedBox(height: 60),
           AnimatedContainer(
             duration: const Duration(milliseconds: kPageViewDuration + 150),
             margin: EdgeInsets.only(top: headingMarginTop),
